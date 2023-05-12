@@ -6,7 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "EnchantBookFactoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1
