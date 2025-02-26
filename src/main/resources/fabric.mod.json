@@ -1,38 +1,42 @@
 {
-  "schemaVersion": 1,
-  "id": "progressive_enchantments",
-  "version": "${version}",
+	"schemaVersion": 1,
+	"id": "progressive-enchantments",
+	"version": "${version}",
 
-  "name": "Progressive Enchantments",
-  "description": "Changes how enchantment progression works",
-  "authors": [
-    "litaff"
-  ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
-
-  "license": "CC0-1.0",
-  "icon": "assets/progressive_enchantments/icon.png",
-
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.fabricmc.progressive_enchantments.ProgressiveEnchantments"
-    ]
-  },
-  "mixins": [
-    "progressive_enchantments.mixins.json"
-  ],
-
-  "depends": {
-    "fabricloader": ">=0.14.17",
-    "fabric-api": "*",
-    "minecraft": "~1.19.4",
-    "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
-  }
+	"name": "Progressive Enchantments",
+	"description": "Changes how enchantment levels are acquired.",
+	"authors": [
+		"litaff"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/litaff/progressive-enchantments-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/progressive-enchantments/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"progressive_enchantments.ProgressiveEnchantments"
+		],
+		"client": [
+			"progressive_enchantments.ProgressiveEnchantmentsClient"
+		]
+	},
+	"mixins": [
+		"progressive-enchantments.mixins.json",
+		{
+			"config": "progressive-enchantments.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
 }
