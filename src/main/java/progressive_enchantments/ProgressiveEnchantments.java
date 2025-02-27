@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import progressive_enchantments.config.Config;
 
 public class ProgressiveEnchantments implements ModInitializer {
 	public static final String MOD_ID = "progressive-enchantments";
@@ -19,6 +20,7 @@ public class ProgressiveEnchantments implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
+		Config.load();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

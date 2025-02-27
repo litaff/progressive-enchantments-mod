@@ -3,7 +3,9 @@
 	"package": "progressive_enchantments.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"tradeOffers.EnchantBookFactoryMixin",
+		"AnvilScreenHandlerMixin",
+		"EnchantmentScreenHandlerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
