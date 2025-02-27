@@ -1,6 +1,7 @@
 package progressive_enchantments.config;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import net.fabricmc.loader.api.FabricLoader;
 import progressive_enchantments.ProgressiveEnchantments;
 
@@ -41,7 +42,7 @@ public class Config {
 
     public static void save() {
         try (FileWriter file = new FileWriter(CONFIG_PATH.toFile())) {
-            var json = new Gson().toJson(configCurrent);
+            var json = new Gson().newBuilder().setPrettyPrinting().create().toJson(configCurrent);
             file.write(json);
             file.flush();
         } catch (Exception e) {
