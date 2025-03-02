@@ -10,3 +10,9 @@ when used in an anvil - affectVillagerTrading,
 
 Enchanted items and books found through other means are left unchanged. 
 The above changes can be turned off in the config.
+
+## Progression
+
+| Enchantment | Action                                         |
+|-------------|------------------------------------------------|
+| Unbreaking  | Chance to upgrade whenever durability is lost. |

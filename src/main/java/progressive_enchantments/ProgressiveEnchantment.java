@@ -21,9 +21,7 @@ public class ProgressiveEnchantment {
 
     public void progressEnchantmentFrom() {
         var level = itemStack.getEnchantments().getLevel(entry);
-        var target = level + 1000;
-        itemStack.addEnchantment(entry, target);
-
+        var target = level + 1;
         if (target >= enchantmentCap || Math.random() * 100 > progressionChance) target = level;
         itemStack.addEnchantment(entry, target);
     }
