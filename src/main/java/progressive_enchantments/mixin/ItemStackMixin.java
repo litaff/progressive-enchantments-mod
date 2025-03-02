@@ -1,11 +1,9 @@
 package progressive_enchantments.mixin;
 
 import net.minecraft.component.type.ItemEnchantmentsComponent;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,8 +20,6 @@ import java.util.function.Consumer;
 public abstract class ItemStackMixin {
     @Shadow public abstract ItemEnchantmentsComponent getEnchantments();
 
-    @Shadow public abstract void addEnchantment(RegistryEntry<Enchantment> enchantment, int level);
-
     @Inject(method = "onDurabilityChange", at = @At(value = "HEAD"))
     public void onDurabilityChange(int damage, @Nullable ServerPlayerEntity player, Consumer<Item> breakCallback, CallbackInfo ci){
         var enchantmentComponent = getEnchantments();
@@ -31,10 +27,11 @@ public abstract class ItemStackMixin {
             var key = entry.getKey();
             if (key.isEmpty()) continue;
             if (key.get() != Enchantments.UNBREAKING) continue;
-            var progressiveEnchantment = new ProgressiveEnchantment(Config.get().unbreakingConfig);
-            addEnchantment(entry, progressiveEnchantment.progressEnchantmentFrom(enchantmentComponent.getLevel(entry)));
+            // This cast tricks the compiler. It's a valid way of casting a mixin.
+            var progressiveEnchantment = new ProgressiveEnchantment((ItemStack) (Object) this, entry, Config.get().unbreakingConfig);
+            // Don't know why this is considered "unreachable" by intellij.
+            progressiveEnchantment.progressEnchantmentFrom();
             return;
         }
     }
-
 }
