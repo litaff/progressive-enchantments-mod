@@ -37,6 +37,8 @@ public class Config {
             ProgressiveEnchantments.LOGGER.error("Failed to load config file", e);
         }
 
+        configCurrent.validate();
+
         save();
     }
 
