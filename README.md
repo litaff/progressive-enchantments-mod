@@ -13,8 +13,9 @@ The above changes can be turned off in the config.
 
 ## Progression
 
-| Enchantment | Action                                                | Chance                                                                                                             |
-|-------------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| Unbreaking  | Chance to upgrade whenever durability is lost.        | Always the same.                                                                                                   |
-| Efficiency  | Chance to upgrade whenever mining an effective block. | chance = (initialProgressionChance + addend) * blockHardness ^ (1.5 - blockHardness / 10) / enchantmentLevel ^ 2.5 |
+| Enchantment | Action                                                          | Chance                                                                                                             |
+|-------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| Unbreaking  | Chance to upgrade whenever durability is lost.                  | Always the same.                                                                                                   |
+| Efficiency  | Chance to upgrade whenever mining an effective block.           | chance = (initialProgressionChance + addend) * blockHardness ^ (1.5 - blockHardness / 10) / enchantmentLevel ^ 2.5 |
+| Fortune     | Chance to upgrade whenever fortune does not provide bonus items | Always the same.                                                                                                   |
 

@@ -39,7 +39,7 @@ public abstract class ItemStackMixin {
             if (key.isEmpty()) continue;
             if (key.get() != Enchantments.UNBREAKING) continue;
             var progressiveEnchantment = new ProgressiveEnchantment(getThis(), entry, Config.get().unbreakingConfig);
-            progressiveEnchantment.progressEnchantmentFrom();
+            progressiveEnchantment.progress();
             return;
         }
     }
@@ -73,7 +73,7 @@ public abstract class ItemStackMixin {
             var hardness = state.getHardness(world, pos);
             var level = progressiveEnchantment.getLevel();
             var multiplier = (float) (Math.pow(hardness, 1.5 - hardness / 10) / Math.pow(level, 2.5));
-            progressiveEnchantment.progressEnchantmentFrom(multiplier, 0f);
+            progressiveEnchantment.progress(multiplier, 0f);
             return true;
         }
         return false;

@@ -23,11 +23,11 @@ public class ProgressiveEnchantment {
         return itemStack.getEnchantments().getLevel(entry);
     }
 
-    public void progressEnchantmentFrom() {
-        progressEnchantmentFrom(1f, 0f);
+    public void progress() {
+        progress(1f, 0f);
     }
 
-    public void progressEnchantmentFrom(float multiplier, float addend) {
+    public void progress(float multiplier, float addend) {
         var level = itemStack.getEnchantments().getLevel(entry);
         var target = level + 1;
         var chance = (initialProgressionChance + addend) * multiplier;
